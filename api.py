@@ -35,5 +35,5 @@ def get_orders(token: str) -> list[Order]:
         orders = generate_data()
         return orders
     except Exception as err:
-        logger.error(exc_info=True)
+        logger.error(exc_info=True, msg='ошибка при запросе к API')
         raise Exception('Ошибка запроса к API: {}'.format(err))
