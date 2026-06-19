@@ -1,13 +1,14 @@
 import logging
 from datetime import date, timedelta
 
-from models import Order
+import pandas as pd
+
 from service.data_generator import generate_data
 
 logger = logging.getLogger(__name__)
 
 
-def get_orders(token: str) -> list[Order]:
+def get_orders(token: str) -> pd.DataFrame:
     """
     Функция для получения заказов из API
     :param token: API-токен
