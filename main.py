@@ -2,7 +2,7 @@ import asyncio
 import logging
 
 from bot.bot import bot, dp
-from bot.scheduler import on_startup
+from scheduler.scheduler import on_startup
 from settings import CHAT_ID
 
 logging.basicConfig(level=logging.INFO, format='[{asctime}] #{levelname:4} {name}:{lineno} - {message}', style='{')
