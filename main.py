@@ -48,11 +48,20 @@ async def on_startup():
     """
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
 
+    # планирование на 10 утра
+    # scheduler.add_job(
+    #     send_daily_message,
+    #     trigger="cron",
+    #     hour=10,
+    # )
+
+    # тестовое планирование (раз в мин)
     scheduler.add_job(
         send_daily_message,
         trigger="interval",
-        seconds=5,
+        minutes=1,
     )
+
     scheduler.start()
 
 
