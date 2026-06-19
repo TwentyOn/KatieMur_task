@@ -1,4 +1,5 @@
 import logging
+from datetime import date, timedelta
 
 from models import Order
 from service.data_generator import generate_data
@@ -21,8 +22,10 @@ def get_orders(token: str) -> list[Order]:
         'Accept': 'application/json'
     }
 
+    # как пример
     params = {
-
+        'date_from': date.today() - timedelta(days=1),
+        'date_to': date.today()
     }
 
     # запрос к API.
