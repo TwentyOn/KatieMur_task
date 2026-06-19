@@ -27,9 +27,9 @@ async def send_daily_message():
             text = f'Заказов на {date} зафиксировано не было :('
         else:
             text = (f"Доброе утро! Топ 3 артикула по заказам на {date}:\n"
-                    f"1. {rating[0][1]} ({rating[0][0]})\n"
-                    f"2. {rating[1][1]} ({rating[1][0]})\n"
-                    f"3. {rating[2][1]} ({rating[2][0]})")
+                    f"1. {rating[0][0]} ({rating[0][1]})\n"
+                    f"2. {rating[1][0]} ({rating[1][1]})\n"
+                    f"3. {rating[2][0]} ({rating[2][1]})")
 
         await bot.send_message(chat_id=CHAT_ID, text=text)
 

@@ -8,12 +8,12 @@ from models import Order
 
 
 def generate_data() -> pd.DataFrame:
-    result = [None] * 1000
+    result = [None] * 100000
 
     articles = [random.randrange(100000000, 1000000000) for _ in range(100)]
 
     fake = Faker('ru_RU')
-    for i in range(1000):
+    for i in range(100000):
         order = Order(
             order_date=(date.today() - timedelta(days=1)).strftime("%d-%m-%Y"),
             article=random.choice(articles),
