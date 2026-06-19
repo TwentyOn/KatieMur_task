@@ -16,7 +16,7 @@ def generate_data() -> list[Order]:
         order = Order(
             order_date=(date.today() - timedelta(days=1)).strftime("%d-%m-%Y"),
             article=random.choice(articles),
-            product_name=fake.name(),
+            product_name=fake.text(),
             status=random.choice(['Оформлен', 'В пути', 'Доставлен']),
             price=random.uniform(500, 100000),
         )

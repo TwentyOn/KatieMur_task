@@ -21,5 +21,5 @@ def get_orders_rating(orders: list[Order]) -> list[tuple[int, int]]:
         return result
 
     except Exception as err:
-        logger.error(exc_info=True)
+        logger.error(exc_info=True, msg='Ошибка при подсчете рейтинга заказов')
         raise err
