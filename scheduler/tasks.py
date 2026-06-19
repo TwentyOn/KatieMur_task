@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from api import get_orders
 from bot.bot import bot
 from service.calculate import get_orders_rating
-from service.csv_writer import write_orders
+from service.writers import csv_writer
 from settings import ACCESS_TOKEN, CHAT_ID
 
 logging.basicConfig(level=logging.INFO, format='[{asctime}] #{levelname:4} {name}:{lineno} - {message}', style='{')
@@ -18,7 +18,7 @@ async def send_daily_message():
     """
     try:
         orders = get_orders(ACCESS_TOKEN)
-        write_orders(orders)
+        csv_writer(orders)
 
         rating = get_orders_rating(orders)
         date = (datetime.today() - timedelta(days=1)).strftime('%d.%m.%Y')

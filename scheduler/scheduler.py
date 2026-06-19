@@ -25,6 +25,7 @@ async def on_startup():
         send_daily_message,
         trigger="interval",
         minutes=1,
+        # seconds=3
     )
 
     scheduler.start()
