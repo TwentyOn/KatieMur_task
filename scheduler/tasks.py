@@ -1,8 +1,6 @@
 import logging
 from datetime import datetime, timedelta
 
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
-
 from api import get_orders
 from bot.bot import bot
 from service.calculate import get_orders_rating
@@ -38,27 +36,3 @@ async def send_daily_message():
     except Exception as err:
         logger.error(exc_info=True, msg='Ошибка при отправке сообщения')
         await bot.send_message(chat_id=CHAT_ID, text='Непредвиденная ошибка формирования ежедневной статистики :(')
-
-
-async def on_startup():
-    """
-    Инициализация ежедневого задания при запуске бота
-    :return:
-    """
-    scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
-
-    # планирование на 10 утра
-    # scheduler.add_job(
-    #     send_daily_message,
-    #     trigger="cron",
-    #     hour=10,
-    # )
-
-    # тестовое планирование (раз в мин)
-    scheduler.add_job(
-        send_daily_message,
-        trigger="interval",
-        minutes=1,
-    )
-
-    scheduler.start()
