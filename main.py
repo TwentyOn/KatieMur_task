@@ -6,7 +6,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from bot.bot import bot, dp
 from settings import ACCESS_TOKEN, CHAT_ID
-from wb_api import get_orders
+from api import get_orders
 from service.csv_writer import write_orders
 from service.calculate import get_orders_rating
 
